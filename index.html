@@ -26,12 +26,11 @@ SOFTWARE.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>larrik</title>
-</head>
-<body>
+</head><body>
     <div class="right">
         [<input id="search" class="search" oninput="searching()" placeholder="search.">]
     </div>
-    <div class="left" id="projects">
+    <div class="left">
         /
     </div>
     <div class="center">
@@ -39,50 +38,40 @@ SOFTWARE.
         <div id="items">
             <bold>projects</bold>
             <div class="item"
-            onmouseover="changeurl('projects',
-            '[github] larrikinist.github.io')"
+            onmouseover="changeurl('[github] larrikinist.github.io')"
             onclick="loadurl('https://www.github.com/larrikinist/larrikinist.github.io')"
-            onmouseleave="changeurl('projects', '/')">
-                website.
+            onmouseleave="revurl()">website.
             </div>
             <div class="item"
-            onmouseover="changeurl('projects',
-            '[github] ext')"
+            onmouseover="changeurl('[github] ext')"
             onclick="loadurl('https://www.github.com/larrikinist/ext')"
-            onmouseleave="changeurl('projects', '/')">
-                ext.
+            onmouseleave="revurl()">ext.
             </div>
             <div class="item"
-            onmouseover="changeurl('projects',
-            '[github] iboot')"
+            onmouseover="changeurl('[github] iboot')"
             onclick="loadurl('https://www.github.com/larrikinist/iBoot')"
-            onmouseleave="changeurl('projects', '/')">
-                iboot.
+            onmouseleave="revurl()">iboot.
             </div>
             <div class="item"
-            onmouseover="changeurl('projects',
-            '[github] snapchat source')"
+            onmouseover="changeurl('[github] snapchat source')"
             onclick="loadurl('https://github.com/larrikinist/Snapchat-Source')"
-            onmouseleave="changeurl('projects', '/')">
-                snapchat.
+            onmouseleave="revurl()">snapchat.
             </div>
             <div id="items">
             <bold>links</bold>
             <div class="item"
-            onmouseover="changeurl('projects',
-            '[github] larrikinist')"
-            onclick="loadurl('https://github.com/larrikinist')"
-            onmouseleave="changeurl('projects', '/')">
-                website.
+            onmouseover="changeurl('[github] larrikinist')"
+            onclick="loadurl('https://github.com/larrikinist/')"
+            onmouseleave="revurl()">website.
             </div>
         </div>
     </div>
-    <footer>
-        copyright larrik 2018 <span onclick="loadurl('view-source:' + window.location.href)">license</span>
-    </footer>
-</body>
-</html>
-<style>
+</div>
+<footer>
+    copyright larrik 2018 | <span onclick="loadurl(
+        'https://github.com/larrikinist/larrikinist.github.io/blob/master/LICENSE')">license</span>
+</footer>
+</body></html><style>
 body{font-family:Helvetica, sans-serif;
      background-color:black;
      color:rgb(153, 153, 153);}
@@ -108,26 +97,22 @@ bold{font-weight:bold;
 .project:hover{color:rgb(70, 1, 1);}
 footer{position:fixed;
        bottom:0;
-       color:rgb(61, 61, 61);
-       left:50%;}
+       color:rgb(61, 61, 61);}
 @media only screen and (max-width:700px){
-    .search{display:none;}}
-</style>
-<script>
+    .right{display:none;}}
+</style><script>
+function revurl(){document.getElementsByClassName("left")[0].innerHTML = "/"}
 function loadurl(url){window.open(url, '_blank')}
-function changeurl(section, url){document.getElementById(section).innerHTML = url}
-function searching(){
-    let val = document.getElementById("search").value
-    let search = document.getElementsByClassName("item")
-    if(val !== ""){
-        for(var i = 0;i < search.length; i++){
-            if(search[i].innerHTML.indexOf(val) == -1){
-                search[i].style.display = "none"}}
-    }else{
-        for(var i = 0; i < search.length; i++){
-            search[i].style.display = "block"}}}
+function changeurl(url){document.getElementsByClassName("left")[0].innerHTML = url}
+function searching(){let val = document.getElementById("search").value
+let search = document.getElementsByClassName("item")
+if(val !== ""){
+for(var i = 0;i < search.length; i++){
+if(search[i].innerHTML.indexOf(val) == -1){
+search[i].style.display = "none"}}
+}else{for(var i = 0; i < search.length; i++){
+search[i].style.display = "block"}}}
 </script>
-
 <!-- plz read
 https://github.com/nefe/You-Dont-Need-jQuery
 http://youmightnotneedjquery.com/
